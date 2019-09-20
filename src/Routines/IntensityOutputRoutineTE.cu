@@ -1,8 +1,8 @@
 /*
  * IntensityOutputRoutine.cpp
  *
- *  Created on: 11 янв. 2016 г.
- *      Author: aleksandr
+ *  Created on: 18 сен. 2019 г.
+ *      Author: vladislav
  */
 
 #include "IntensityOutputRoutineTE.h"
