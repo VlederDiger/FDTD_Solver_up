@@ -45,7 +45,7 @@ public:
 		} else {
 			intensityGPU.resize(sizeX*sizeY, 0);
 			updaterIntensity.setParams(intensityGPU.getDevicePtr(),
-										grid->Ez.getDevicePtr(),
+										grid->Hz.getDevicePtr(),
 										firstX,
 										firstY,
 										sizeY,
