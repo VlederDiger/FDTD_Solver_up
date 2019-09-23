@@ -22,7 +22,7 @@
  * Ez с GPU на CPU
  */
 
-class IntensityOutputRoutineTM: public Routine {
+class IntensityOutputRoutineTE: public Routine {
 public:
 	IntensityOutputRoutineTE(std::string _fileName, GridTE* _grid,
 							 int _firstX, int _lastX, int _resolutionX,
