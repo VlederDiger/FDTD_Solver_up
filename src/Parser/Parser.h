@@ -16,6 +16,7 @@
 #include "../Updaters/UpdaterTM.h"
 #include "../Updaters/UpdaterTE.h"
 #include "../Routines/IntensityOutputRoutineTM.h"
+#include "../Routines/IntensityOutputRoutineTE.h"
 #include "../Routines/EzOutputRoutineTM.h"
 #include "../Routines/HxOutputRoutineTM.h"
 #include "../Routines/HyOutputRoutineTM.h"
@@ -56,6 +57,7 @@ private:
 	std::vector<HxOutputRoutineTM*> HxOut;
 	std::vector<HyOutputRoutineTM*> HyOut;
 	std::vector<IntensityOutputRoutineTM*> IntenOut;
+	std::vector<IntensityOutputRoutineTE*> IntenOut;
 	std::vector<HzOutputRoutineTE*> HzOut;
 	std::vector<ExOutputRoutineTE*> ExOut;
 	std::vector<EyOutputRoutineTE*> EyOut;
