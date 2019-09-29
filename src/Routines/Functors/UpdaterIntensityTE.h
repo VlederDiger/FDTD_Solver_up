@@ -16,7 +16,7 @@ typedef thrust::device_ptr<float> d_ptr;
 class UpdaterIntensityTE {
 public:
 	__host__ __device__
-	UpdaterIntensityTE(d_ptr _intensity, d_ptr _Ex, _ptr _Ey, int _firstX, int _firstY, int _sizeY,
+	UpdaterIntensityTE(d_ptr _intensity, d_ptr _Ex, d_ptr _Ey, int _firstX, int _firstY, int _sizeY,
 									int _gridSizeY, int _stepX, int _stepY) :
 														intensity(_intensity), Ex(_Ex), Ey(_Ey),
 														firstX(_firstX), firstY(_firstY),
@@ -27,7 +27,7 @@ public:
 	UpdaterIntensityTE() {};
 
 	__host__ __device__
-	void setParams(d_ptr _intensity, d_ptr _Ex, _ptr _Ey, int _firstX, int _firstY, int _sizeY,
+	void setParams(d_ptr _intensity, d_ptr _Ex, d_ptr _Ey, int _firstX, int _firstY, int _sizeY,
 									int _gridSizeY, int _stepX, int _stepY) {
 		Ex = _Ex;
 		Ey = _Ey;
@@ -42,7 +42,7 @@ public:
 	__device__
 	void operator() (const int indx);
 
-	d_ptr _Ex, _ptr _Ey, intensity;
+	d_ptr _Ex, d_ptr _Ey, intensity;
 	int firstX, firstY, sizeY, gridSizeY, stepX, stepY;
 };
 
