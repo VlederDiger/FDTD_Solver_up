@@ -161,6 +161,11 @@ void Parser::runTE() {
 		if (command == "Epsilon:") {
 			readEpsilonTE();
 		}
+		
+		if (command == "Sigma:") {
+			readSigmaTE();
+		}
+		
 		if (command == "Source:") {
 			addSourceTE();
 		}
@@ -175,22 +180,26 @@ void Parser::runTE() {
 		}
 	}
 	for (int i = 0; i < hSources.size(); i++){
-		updaterTM.addSource(hSources[i]);
+		updaterTE.addSource(hSources[i]);
 	}
 	for (int i = 0; i < HzOut.size(); i++){
-		updaterTM.addRoutine(HzOut[i]);
+		updaterTE.addRoutine(HzOut[i]);
 	}
 	for (int i = 0; i < ExOut.size(); i++){
-		updaterTM.addRoutine(ExOut[i]);
+		updaterTE.addRoutine(ExOut[i]);
 	}
 	for (int i = 0; i < EyOut.size(); i++){
-		updaterTM.addRoutine(EyOut[i]);
+		updaterTE.addRoutine(EyOut[i]);
+	}
+	
+	for (int i = 0; i < IntenOut.size(); i++){
+		updaterTE.addRoutine(IntenOut[i]);
 	}
 	for (int i = 0; i < ABCTEs.size(); i++){
-		updaterTM.addBoundaryCond(ABCTEs[i]);
+		updaterTE.addBoundaryCond(ABCTEs[i]);
 	}
 	for (int i = 0; i < periodicsTE.size(); i++){
-		updaterTM.addBoundaryCond(periodicsTE[i]);
+		updaterTE.addBoundaryCond(periodicsTE[i]);
 	}
 	if (tfsfTE != NULL) {
 		updaterTE.addTFSF(tfsfTE);
@@ -220,6 +229,12 @@ void Parser::readEpsilonTE() {
 	std::string epsilonFileName = "";
 	fileStream >> epsilonFileName;
 	gridTE->readEpsilon(epsilonFileName);
+}
+
+void Parser::readSigmaTE() {
+	std::string sigmaFileName = "";
+	fileStream >> sigmaFileName;
+	gridTE->readSigma(sigmaFileName);
 }
 
 void Parser::createGridTM() {
@@ -454,6 +469,17 @@ inline void Parser::addRoutineTE() {
 															startTime, endTime,
 															period);
 		EyOut.push_back(routine);
+	}
+	
+	if (routineType == "Intensity") {
+		std::string fileName;
+		int firstX, lastX, stepX, firstY, lastY, stepY, startTime, endTime, period, copyEachItearation;
+		fileStream >> fileName >> firstX >> lastX >> stepX >> firstY >> lastY >> stepY >> startTime >> endTime >> period >> copyEachItearation;
+		IntensityOutputRoutineTE* routine = new IntensityOutputRoutineTE(fileName, gridTE, firstX, lastX,
+															stepX, firstY, lastY, stepY,
+															startTime, endTime,
+															period, copyEachItearation);
+		IntenOut.push_back(routine);
 	}
 }
 
