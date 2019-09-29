@@ -8,7 +8,7 @@
 #ifndef ROUTINE_H_
 #define ROUTINE_H_
 
-#include "../Grids/GridTM.h"
+#include "../Grids/GridTE.h"
 
 /*
  * Базовый класс для дополнительных вычислений.
