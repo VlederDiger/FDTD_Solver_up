@@ -15,10 +15,10 @@
 #define sigmaHost(M, N) sigma[(M) * (sizeY) + (N)]
 
 GridTE::GridTE(std::size_t _sizeX, std::size_t _sizeY, float _S) :  sizeX(_sizeX), sizeY(_sizeY),
-														  Hz((sizeX-1)*(sizeY-1), 0),
-														  Ex((sizeX-1)*sizeY, 0), Ey(sizeX*(sizeY-1),0), ,0),
-														  epsilon(sizeX*sizeY, 1), sigma(sizeX*sizeY, 0), 
-														  time(0), S(_S) {
+													  Hz((sizeX-1)*(sizeY-1), 0),
+													  Ex((sizeX-1)*sizeY, 0), Ey(sizeX*(sizeY-1), 0),
+												 	  epsilon(sizeX*sizeY, 1), sigma(sizeX*sizeY, 0), 
+													  time(0), S(_S) {
 	std::cout << "GridTE was initiated: \n";
 	std::cout << "\t sizeX = " << (int)(sizeX) << "px \n";
 	std::cout << "\t sizeY = " << (int)(sizeY) << "px \n";
