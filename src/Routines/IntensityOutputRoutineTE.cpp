@@ -81,7 +81,7 @@ void IntensityOutputRoutineTE::collectDataCPU() {
 	
 	for(int m = 0; m < sizeX; m++ ) {
 		for(int n = 0; n < sizeY; n++ ){
-			intensity(m, n) += sqrt(Ex(firstX + m*stepX, firstY + n*stepX)*Ex(firstX + m*stepX, firstY + n*stepX)+Ey(firstX + m*stepX, firstY + n*stepX)*Ey(firstX + m*stepX, firstY + n*stepX));
+			intensity(m, n) += sqrt(Ex(firstX + m*resolutionX, firstY + n*resolutionX)*Ex(firstX + m*resolutionX, firstY + n*resolutionX)+Ey(firstX + m*resolutionX, firstY + n*resolutionX)*Ey(firstX + m*resolutionX, firstY + n*resolutionX));
 		}
 	}
 }
