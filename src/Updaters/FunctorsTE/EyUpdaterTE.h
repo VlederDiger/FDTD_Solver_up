@@ -16,16 +16,17 @@ typedef thrust::device_ptr<float> d_ptr;
 class EyUpdaterTE {
 public:
 	__host__ __device__
-	EyUpdaterTE(d_ptr _Ey, d_ptr _Hz, d_ptr _epsilon, int _sizeX, int _sizeY, float _S ) : Ey(_Ey), Hz(_Hz),
-			epsilon(_epsilon), sizeX(_sizeX), sizeY(_sizeY), S(_S) {};
+	EyUpdaterTE(d_ptr _Ey, d_ptr _Hz, d_ptr _epsilon, d_ptr _sigma, int _sizeX, int _sizeY, float _S ) : Ey(_Ey), Hz(_Hz),
+			epsilon(_epsilon), sigma(_sigma), sizeX(_sizeX), sizeY(_sizeY), S(_S) {};
 
 	__host__ __device__
 	EyUpdaterTE(): sizeX(0), sizeY(0), S(0) {}
 
-	void setParams(d_ptr _Ey, d_ptr _Hz, d_ptr _epsilon, int _sizeX, int _sizeY, float _S ) {
+	void setParams(d_ptr _Ey, d_ptr _Hz, d_ptr _epsilon, d_ptr _sigma, int _sizeX, int _sizeY, float _S ) {
 		Ey=_Ey;
 		Hz=_Hz;
 		epsilon=_epsilon;
+		sigma=_sigma
 		sizeX=_sizeX;
 		sizeY=_sizeY;
 		S=_S;
@@ -37,7 +38,7 @@ public:
 	__host__ __device__
 	void operator() (const int indx);
 
-	d_ptr Ey, Hz, epsilon;
+	d_ptr Ey, Hz, epsilon, sigma;
 	int sizeX, sizeY;
 	float S;
 };
