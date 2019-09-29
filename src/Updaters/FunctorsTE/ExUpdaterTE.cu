@@ -19,8 +19,10 @@ void ExUpdaterTE::operator() (const int indx) {
 	// sizeY - размер полноценнго массива
 	int m = indx/(sizeY);
 	int n = indx%(sizeY);
-	float Cexh = S * 377.0;
+	float loss = sigma(m, n)/(2*epsilon(m, n));
+	float Cexe = (1-loss)/(1+loss);
+	float Cexh =  S * 377.0 / epsilon(m,n) / (1+loss);
 	if ( m < (sizeX - 1) && n > 0 && n < (sizeX - 1) ) {
-		Ex(m, n) = Ex(m, n) + Cexh/epsilon(m, n)*(Hz(m, n) - Hz(m, n - 1));
+		Ex(m, n) = Cexe*Ex(m, n) + Cexh*(Hz(m, n) - Hz(m, n - 1));
 	}
 }
