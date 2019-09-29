@@ -16,8 +16,8 @@ typedef thrust::device_ptr<float> d_ptr;
 class ExUpdaterTE {
 public:
 	__host__ __device__
-	ExUpdaterTE(d_ptr _Ex, d_ptr _Hz, d_ptr _epsilon, int _sizeX, int _sizeY, float _S ) : Ex(_Ex), Hz(_Hz),
-			epsilon(_epsilon), sizeX(_sizeX), sizeY(_sizeY), S(_S) {};
+	ExUpdaterTE(d_ptr _Ex, d_ptr _Hz, d_ptr _epsilon, d_ptr _sigma, int _sizeX, int _sizeY, float _S ) : Ex(_Ex), Hz(_Hz),
+			epsilon(_epsilon), sigma(_sigma), sizeX(_sizeX), sizeY(_sizeY), S(_S) {};
 
 	__host__ __device__
 	ExUpdaterTE(): sizeX(0), sizeY(0), S(0) {}
@@ -26,6 +26,7 @@ public:
 		Ex=_Ex;
 		Hz=_Hz;
 		epsilon=_epsilon;
+		sigma=_sigma;
 		sizeX=_sizeX;
 		sizeY=_sizeY;
 		S=_S;
