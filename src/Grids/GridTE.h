@@ -21,10 +21,13 @@ public:
 
 	void readEpsilon(const std::string& fileName);
 
-	int sizeX, sizeY;
+	void readSigma(const std::string& fileName);
+	
+	// Геометрические размеры
+	std::size_t sizeX, sizeY;
 	float S;
-	vector Hz, Ex, Ey, epsilon;
-	int time;
+	vector Hz, Ex, Ey, epsilon, sigma;
+	std::size_t time;
 };
 
 #endif /* GRIDTE_H_ */
