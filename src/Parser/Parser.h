@@ -57,10 +57,10 @@ private:
 	std::vector<HxOutputRoutineTM*> HxOut;
 	std::vector<HyOutputRoutineTM*> HyOut;
 	std::vector<IntensityOutputRoutineTM*> IntenOut;
-	std::vector<IntensityOutputRoutineTE*> IntenOut;
 	std::vector<HzOutputRoutineTE*> HzOut;
 	std::vector<ExOutputRoutineTE*> ExOut;
 	std::vector<EyOutputRoutineTE*> EyOut;
+	std::vector<IntensityOutputRoutineTE*> IntenOut;
 	std::vector<ABCTM*> ABCTMs;
 	std::vector<ABCTE*> ABCTEs;
 	std::vector<PeriodicCondTM*> periodicsTM;
@@ -86,7 +86,7 @@ private:
 	inline void addBoundaryCondTE();
 	inline void addRoutineTE();
 	void readEpsilonTE();
-
+	void readSigmaTE();
 
 };
 
