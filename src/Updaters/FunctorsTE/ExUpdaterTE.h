@@ -37,7 +37,7 @@ public:
 	__host__ __device__
 	void operator() (const int indx);
 
-	d_ptr Ex, Hz, epsilon;
+	d_ptr Ex, Hz, epsilon, sigma;
 	int sizeX, sizeY;
 	float S;
 };
