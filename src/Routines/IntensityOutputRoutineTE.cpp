@@ -74,11 +74,14 @@ void IntensityOutputRoutineTE::collectData() {
 }
 
 void IntensityOutputRoutineTE::collectDataCPU() {
-	grid->Ez.GPUtoCPU();
-	#define Hz(M, N) grid->Hz[(M) * (grid->sizeY) + (N)]
+	grid->Ex.GPUtoCPU();
+	#define Ex(M, N) Ex[(M) * (gridSizeY) + (N)]
+	grid->Ey.GPUtoCPU();
+	#define Ey(M, N) Ey[(M) * (gridSizeY) + (N)]
+	
 	for(int m = 0; m < sizeX; m++ ) {
 		for(int n = 0; n < sizeY; n++ ){
-			intensity(m, n) += Hz(firstX + m*resolutionX, firstY + n*resolutionX)*Hz(firstX + m*resolutionX, firstY + n*resolutionX);
+			intensity(m, n) += sqrt(Ex(firstX + m*stepX, firstY + n*stepX)*Ex(firstX + m*stepX, firstY + n*stepX)+Ey(firstX + m*stepX, firstY + n*stepX)*Ey(firstX + m*stepX, firstY + n*stepX));
 		}
 	}
 }
