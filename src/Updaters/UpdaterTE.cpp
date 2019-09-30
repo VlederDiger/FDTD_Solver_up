@@ -24,12 +24,14 @@ void UpdaterTE::addGrid(GridTE* _grid) {
 	ExUpdater.setParams(grid->Ex.getDevicePtr(),
 			   	   	   	grid->Hz.getDevicePtr(),
 			   	   	   	grid->epsilon.getDevicePtr(),
+			    			grid->sigma.getDevicePtr(),
 			   	   	   	grid->sizeX,
 			   	   	   	grid->sizeY,
 			   	   	   	1/sqrt(2));
 	EyUpdater.setParams(grid->Ey.getDevicePtr(),
 					   	grid->Hz.getDevicePtr(),
 					 	grid->epsilon.getDevicePtr(),
+			    			grid->sigma.getDevicePtr(),
 					   	grid->sizeX,
 					   	grid->sizeY,
 					   	1/sqrt(2));
