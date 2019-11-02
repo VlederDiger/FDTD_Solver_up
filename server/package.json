@@ -43,7 +43,7 @@
     "redux": "^3.7.1",
     "redux-actions": "^2.2.1",
     "redux-saga": "^0.15.4",
-    "sequelize": "^4.4.2",
+    "sequelize": "^5.15.1",
     "style-loader": "^0.18.2",
     "webpack": "^3.2.0",
     "whatwg-fetch": "^2.0.3",
